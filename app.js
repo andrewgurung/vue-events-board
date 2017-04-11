@@ -9,7 +9,7 @@ new Vue({
   },
 
   // Run when application loads
-  ready: function() {
+  mounted: function() {
     // When application loads, call the method that initialized some data
     this.fetchEvents();
   },
@@ -40,8 +40,7 @@ new Vue({
         }
       ];
 
-      // $set is a convenience method provided by Vue that is similar to pushing data into array
-      this.$set('events', events);
+      this.events = events;
     },
 
     // Adds an event to the existing events array
@@ -51,6 +50,12 @@ new Vue({
 
         // Reset form input fields
         this.event = {name: '', description: '', date: ''};
+      }
+    },
+
+    deleteEvent: function(index) {
+      if(confirm("Are you sure you want to delete this event?")) {
+        this.events.splice(index, 1);
       }
     }
   }
