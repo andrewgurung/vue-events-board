@@ -3,12 +3,19 @@ new Vue({
   el: '#events',
 
   // Here we can register any values/collection that hold data for application
-  data: {},
+  data: {
+    event: { name: '', description: '', date: '' },
+    events: []
+  },
 
   // Run when application loads
   ready: function() {},
 
   // Register custom methods for the app
-  methods: {}
+  methods: {
+    addEvent: function() {
+      console.log('addEvent fired!');
+    }
+  }
 
 });
